@@ -1,6 +1,6 @@
 {
-  "short_name": "React Skeleton",
-  "name": "React Skeleton",
+  "short_name": "React todolist",
+  "name": "React todolist",
   "icons": [
     {
       "src": "favicon.ico",

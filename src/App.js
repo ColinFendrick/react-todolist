@@ -4,7 +4,6 @@ import { Home } from './components';
 
 const App = () => (
 	<div>
-      Basic Setup:
 		<Switch>
 			<Route path='/' exact component={Home} />
 		</Switch>
