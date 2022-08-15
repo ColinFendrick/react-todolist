@@ -8,29 +8,40 @@ const Home = () => {
 	const [currentEntry, setCurrentEntry] = useState('');
 
 	const addEntry = () => {
-		setList([...list, { value: currentEntry, done: false, index: list.length }]);
+		setList([...list, { title: currentEntry, completed: false, id: list.length, userId: '' }]);
 		setCurrentEntry('');
 	};
 
-	const onChange = e => setCurrentEntry(e.target.value);
-
-	const toggleDone = entry =>
-		setList(list.map(l => l.index === entry.index ? { ...l, done: !l.done } : l));
+	// useEffect(() => {
+	// 	(async() => {
+	// 		const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+	// 		const entries = await res.json();
+	// 		setList(entries.slice(0, 5));
+	// 	})();
+	// }, []);
 
 	// useEffect(() => {
-	// 	document.title = `${list.reduce((pv, cv) => !cv.done ? pv + 1 : pv, 0)}`;
+	// 	document.title = `${list.reduce((pv, cv) => !cv.completed ? pv + 1 : pv, 0)}`;
 	// }, []);
+
+	const deleteEntry = entry => () =>
+		setList(list.filter(item => item.id !== entry.id));
+
+	const onChange = e => setCurrentEntry(e.target.value);
+
+	const toggleCompleted = entry => () =>
+		setList(list.map(l => l.id === entry.id ? { ...l, completed: !l.completed } : l));
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', padding: 20 }}>
 			<div style={{ display: 'flex', alignItems: 'center' }}>
 				<TodoInput value={currentEntry} onChange={onChange} />
 				<Button variant='outlined' onClick={addEntry}>Submit</Button>
-				{/* <Counter count={list.reduce((pv, cv) => !cv.done ? pv + 1 : pv, 0)} /> */}
+				{/* <Counter count={list.reduce((pv, cv) => !cv.completed ? pv + 1 : pv, 0)} /> */}
 			</div>
 
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: 200 }}>
-				{list.map((entry, i) => <Item onClick={toggleDone} entry={entry} key={i} />)}
+				{/* {list.map((entry, i) => <Item onClick={toggleCompleted(entry)} onDelete={deleteEntry(entry)} entry={entry} key={i} />)} */}
 			</div>
 		</div>
 	);

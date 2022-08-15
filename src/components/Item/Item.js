@@ -1,7 +1,7 @@
 const Item = ({ entry, onClick }) =>
 	<div
-		onClick={() => onClick(entry)}
-		style={entry.done ? {
+		onClick={onClick}
+		style={entry.completed ? {
 			color: 'grey',
 			textDecoration: 'line-through'
 		} : {
@@ -9,7 +9,7 @@ const Item = ({ entry, onClick }) =>
 			textDecoration: 'none'
 		}}
 	>
-		{entry.value}
+		{entry.title}
 	</div>;
 
 export default Item;
