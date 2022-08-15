@@ -22,7 +22,7 @@ const Home = () => {
 	// }, []);
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
+		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', padding: 20 }}>
 			<div style={{ display: 'flex', alignItems: 'center' }}>
 				<TodoInput value={currentEntry} onChange={onChange} />
 				<Button variant='outlined' onClick={addEntry}>Submit</Button>

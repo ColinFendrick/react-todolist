@@ -1,7 +1,14 @@
 const Item = ({ entry, onClick }) =>
 	<div
 		onClick={() => onClick(entry)}
-		style={{ color: entry.done ? 'grey' : 'black' }}>
+		style={entry.done ? {
+			color: 'grey',
+			textDecoration: 'line-through'
+		} : {
+			color: 'black',
+			textDecoration: 'none'
+		}}
+	>
 		{entry.value}
 	</div>;
 
