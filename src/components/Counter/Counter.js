@@ -1,3 +1,4 @@
-// const Counter = ({ count }) => <div>{count} left to in todo</div>;
+const Counter = ({ children }) =>
+	<div style={{ marginLeft: 20, fontWeight: 'bold' }}>{children}</div>;
 
-// export default Counter;
+export default Counter;

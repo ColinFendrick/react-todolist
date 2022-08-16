@@ -6,6 +6,7 @@ const App = () => (
 	<div>
 		<Switch>
 			<Route path='/' exact component={Home} />
+			<Route path='/somewhere' component={() => <div>somewhere</div>} />
 		</Switch>
 	</div>
 );
